@@ -10,12 +10,12 @@ type StepperNavbarProps = {
 };
 
 const stepRoutes = [
-    '/select-area',         // Select Area
-    '/choose-template',     // Choose Template
-    '/add-features',        // Add Features
-    '/vehicle-behavior',    // Vehicle Behavior
-    '/preview',             // Preview
-    '/export',              // Export
+    '/select-area',
+    '/choose-template',
+    '/add-features',
+    '/vehicle-behavior',
+    '/preview',
+    '/export',
 ];
 
 const steps = [
@@ -40,15 +40,15 @@ export function StepperNavbar({ currentStep, onStepChange }: StepperNavbarProps)
     return (
         <nav className="flex items-center px-10 pt-0 pb-3 bg-gray-50 space-x-8">
             {steps.map((step, idx) => {
-                const icon = step.icon as React.ReactElement<any>;
+                const icon = step.icon as React.ReactElement<React.SVGProps<SVGSVGElement>>;
                 return (
                     <button
                         key={step.label}
                         onClick={() => handleStepClick(idx)}
                         className={`
-              flex items-center space-x-2 text-md font-medium transition-all
-              ${currentStep === idx ? 'text-blue-700 bg-blue-100 px-3 py-1 rounded-md shadow' : 'text-gray-400 hover:text-blue-500'}
-            `}
+        flex items-center space-x-2 text-md font-medium transition-all
+        ${currentStep === idx ? 'text-blue-700 bg-blue-100 px-3 py-1 rounded-md shadow' : 'text-gray-400 hover:text-blue-500'}
+      `}
                         aria-current={currentStep === idx ? 'step' : undefined}
                         type="button"
                     >
@@ -59,6 +59,7 @@ export function StepperNavbar({ currentStep, onStepChange }: StepperNavbarProps)
                     </button>
                 );
             })}
+
             <span className="ml-auto text-gray-400 text-sm">
                 Step {currentStep + 1} of {steps.length}
             </span>
